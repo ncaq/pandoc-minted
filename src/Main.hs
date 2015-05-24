@@ -15,7 +15,7 @@ toMintedBlock (CodeBlock (identity, classes, namevals) contents) =
         lang = if classes /= [] then head classes else "\\mintlang"
         caption = fromMaybe "" $ lookup "caption" namevals
     in RawBlock (Format "latex") $ unlines
-       [ "\\begin{minted}[linenos=true]{" <> lang <> "}"
+       [ "\\begin{minted}[breaklines=true, linenos=true]{" <> lang <> "}"
        , contents
        , "\\end{minted}"
        , "\\captionof{listing}{" <> caption <> label <> "}"
