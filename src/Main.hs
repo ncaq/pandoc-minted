@@ -25,5 +25,5 @@ toMintedBlock x = x
 toMintedInline :: Inline -> Inline
 toMintedInline (Code (_, classes, _) contents) =
     let lang = if classes /= [] then head classes else "\\mintlang"
-    in RawInline (Format "latex") $ "\\mintinline{" <> lang <> "}{" <>contents <> "}"
+    in RawInline (Format "latex") $ "\\mintinline{" <> lang <> "}{" <> contents <> "}"
 toMintedInline x = x
