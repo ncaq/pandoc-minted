@@ -13,7 +13,7 @@ toMintedBlock :: Block -> Block
 toMintedBlock (CodeBlock (identity, classes, namevals) contents) =
   RawBlock (Format "latex") $ unlines
   [ "\\bgroup"
-  , "\\begin{minted}[breaklines=true, linenos=true]{" <> lang <> "}"
+  , "\\begin{minted}[breakautoindent=false, breaklines=true, linenos=true]{" <> lang <> "}"
   , contents
   , "\\end{minted}"
   , "\\captionof{listing}{" <> caption <> label <> "}"
