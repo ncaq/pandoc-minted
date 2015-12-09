@@ -12,12 +12,9 @@ toMinted = bottomUp toMintedBlock . bottomUp toMintedInline
 toMintedBlock :: Block -> Block
 toMintedBlock (CodeBlock (identity, classes, namevals) contents) =
   RawBlock (Format "latex") $ unlines
-  [ "\\bgroup"
-  , "\\begin{minted}[breakautoindent=false, breaklines=true, linenos=true]{" <> lang <> "}"
+  [ "\\begin{minted}[breakautoindent=false, breaklines=true, linenos=true]{" <> lang <> "}"
   , contents
   , "\\end{minted}"
-  , "\\captionof{listing}{" <> caption <> label <> "}"
-  , "\\egroup"
   ]
   where label = if identity /= "" then "\\label{" <> identity <> "}" else ""
         lang = if classes /= [] then head classes else "\\mintlang"
